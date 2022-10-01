@@ -1,0 +1,96 @@
+.base-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: #a3b7bf;
+}
+.content-block {
+    display: flex; 
+    color: black;
+    flex: 1 1 auto;
+    padding-left: 10px;
+    background-color: #83949c;
+}
+.content-text {
+    padding-left: 40px;
+    font-size: 16px;
+    font-weight: 500;
+    flex: auto;
+}
+.ft {
+    display: flex;
+    height: 55px;
+    justify-content: center;
+    align-items: center;
+    background-color: lightskyblue;
+    color: black;
+    margin-bottom: 10px;
+}
+.footer-text {
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+}
+.mylogo {
+    border: solid;
+    border-color: #009bd4;
+    border-radius: 8px;
+    margin: 0em 2em 0em 1em;
+    transition: 0.8s;
+}
+.mylogo:hover {
+    filter: invert(40%);
+    transform: scale(1.25);
+    transition: 0.8s;
+}
+.mybtn {
+    display: inline-block;
+    color: #009bd4;
+    background-color: black;
+    border: transparent;
+    border-radius: 7px;
+    padding: 0em 2em;
+    margin: 0em 2em 0em 1em;
+    transition: 0.5s;
+}
+.mybtn:hover {
+    color: black;
+    background-color: #009bd4;
+    transition: 0.8s;
+}
+.tags {
+    padding: 10px;
+}
+.post-content {
+    padding: 15px;
+}
+p {
+    padding: 1ch;
+    text-indent: 3ch;
+}
+.btsect {
+    padding-top: 20px;
+}
+.admin-panel {
+    border: 1px solid #999;
+    border-radius: 2px;
+    position: fixed;
+    right: 50px;
+    bottom: 115px;
+    opacity: 0.4;
+    padding: 15px;
+    transition: 2.0s;
+}
+.admin-panel a {
+    display: block;
+    margin: 5px 0px;
+}
+.admin-panel:hover {
+    opacity: 1;
+    transition: 0.8s;
+}
+a.edit, a.delete {
+    display: none;
+}

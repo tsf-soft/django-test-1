@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/main.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'blog/images/ico/favicon-32x32.png' %}" sizes="32x32" />
+    <link rel="icon" type="image/png" href="{% static 'blog/images/ico/favicon-16x16.png' %}" sizes="16x16" />
+    <title>
+        {% block title %}
+            Блог
+        {% endblock %} | django app
+    </title>
+</head>
+<body>
+    <main class="base-container">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark"> 
+            <div class="container-fluid">
+                <a class="mylogo" href="#" >
+                    <img src="{% static 'blog/images/django-lg.png' %}" alt='django-logo' width='84' height='36'>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Домашняя</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'post_list_url' %}">Посты</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'tags_list_url' %}">Тэги</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Управление данными
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="#">Создать пост</a></li>
+                                <li><a class="dropdown-item" href="#">Изменить пост</a></li>
+                                <li><a class="dropdown-item" href="#">Удалить пост</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Сведения поста</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search" method="GET" action="{% url 'post_list_url' %}">
+                        <input class="form-control me-2" type="search" placeholder="Найти" aria-label="Search" name="search">
+                        <button class="mybtn" type="submit">Поиск</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <div class="container mt-5"
+            <div class="content-block">
+                <h2>
+                    {% block content_title %}
+
+                    {% endblock %}
+                </h2>
+            </div>
+            <div class="content-text">
+                <div class="col-6 offset-md-2">
+                    {% block content %}
+                        Пока для вас нет ничего
+                    {% endblock %}
+                    {% if is_paginated %}
+                        <nav aria-label="">
+                            <ul class="pagination">
+                                <li class="page-item {% if not prev_url %} disabled {% endif %}">
+                                    <a class="page-link" href="{{ prev_url }}">Предыдущий</a>
+                                </li>
+                                {% for nmb in page_object.paginator.page_range %}
+                                    {% if page_object.number == nmb %}
+                                        <li class="page-item active" aria-current="page">
+                                            <a class="page-link" href="?page={{ nmb }}">
+                                                {{ nmb }}
+                                            </a>
+                                        </li>
+                                    {% elif nmb > page_object.number|add:-3 and nmb < page_object.number|add:3 %}
+                                        <li class="page-item">
+                                            <a class="page-link" href="?page={{ nmb }}">{{ nmb }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                                <li class="page-item {% if not next_url %} disabled {% endif %}">
+                                    <a class="page-link" href="{{ next_url }}">Следующий</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+        {% if request.user.is_staff %}
+            <div class="admin-panel align-items-center">
+                <a href="/admin" class="btn btn-outline-info">Администрирование</a>
+                {% block admin-panel %}{% endblock %}
+            </div>
+        {% endif %}
+        <footer class="ft">
+            <div class="footer-text">&copy;TSF Страница {{n}}</div>
+        </footer>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
+    </script>
+</body>
+</html>

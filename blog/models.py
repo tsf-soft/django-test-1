@@ -53,3 +53,4 @@ class Tag(models.Model):
 
     class Meta:
         ordering = ['title']
+# изменения для изучения Git #
