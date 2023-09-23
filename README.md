@@ -120,7 +120,7 @@ _<p>Рисунок 8. Форма "Подключение сетевого дис
 
 <a name="fig9"></a>
 
-![Форма Безопасность Windows](https://github.com/tsf-soft/django-test-1/assets/6228605/e8a63494-1953-4b04-9c21-b5c5ad5d55d9)
+![Форма "Безопасность Windows"](https://github.com/tsf-soft/django-test-1/assets/6228605/d41adc37-e829-4851-8517-1c56768b070d)
 _<p>Рисунок 9. Форма "Безопасность Windows"</p>_
 
 
