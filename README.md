@@ -197,7 +197,7 @@ _<p>Рисунок 3.2. Доступные местоположения файл
 
 ```bash
 
-davs://<Имя вашего <a href="#acc_create">аккаунта</a>>@webdav.yandex.ru
+davs://\<Имя вашего <a href="#acc_create">аккаунта</a>\>@webdav.yandex.ru
 
 ```
 
