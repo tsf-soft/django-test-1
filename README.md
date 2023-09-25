@@ -283,7 +283,7 @@ _<p>Рисунок 4.1. Консольный клиент, подключенн�
 
 <a name="lst41"></a>
 
-```bash
+```shell
 
 1 tsf@linux-tsf:~$ sudo su
 2 [sudo] password for tsf:
