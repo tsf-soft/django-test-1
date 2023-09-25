@@ -376,7 +376,7 @@ _<p>Рисунок 4.3. Форма авторизации в браузере</p
 
 <a name="fig44"></a>
 
-<![Успешно пройденная авторизация](https://github.com/tsf-soft/django-test-1/assets/6228605/7ec5fb02-d711-423f-9ede-ac6d97731cc1)
+![Успешно пройденная авторизация](https://github.com/tsf-soft/django-test-1/assets/6228605/7ec5fb02-d711-423f-9ede-ac6d97731cc1)
 _<p>Рисунок 4.4. Успешно пройденная авторизация</p>_
 
 > [!NOTE]
